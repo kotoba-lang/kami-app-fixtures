@@ -1,0 +1,21 @@
+#:kami{:worlds [:kami/scene],
+       :provider-namespaces ["kami.providers.app_fixtures"],
+       :families [:app-fixtures],
+       :kind :edn-fixture-provider,
+       :authority-repos ["EDN examples and fixtures"],
+       :exit-criteria [:convert-to-edn-fixtures-or-delete],
+       :adapter :wasm-component-model,
+       :split-to "orgs/kotoba-lang/kami-app-fixtures",
+       :legacy-crates
+       ["kami-app"
+        "kami-app-amenominaka"
+        "kami-app-car-sim"
+        "kami-app-isekai"
+        "kami-app-quarry-walk"
+        "kami-app-sarutahiko-factory"
+        "kami-app-shibuya"
+        "kami-app-tatekata"
+        "kami-clj-play"
+        "kami-clj-play3d"],
+       :dependency-repos [],
+       :authority [:kotoba-clj :edn]}

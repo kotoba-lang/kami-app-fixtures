@@ -1,0 +1,8 @@
+{:paths ["src" "resources"]
+ :aliases
+ {:test {:extra-paths ["test"]
+         :main-opts ["-m" "kami.app-fixtures-test"]}
+  :check-engine-mirror
+  {:main-opts ["-m" "kami.app-fixtures" "--engine-root" "../kami-engine"]}
+  :sync-engine-mirror
+  {:main-opts ["-m" "kami.app-fixtures" "--write" "--engine-root" "../kami-engine"]}}}
