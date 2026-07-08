@@ -1,8 +1,8 @@
 (ns kami.app-fixtures
   "CLJC validation for KAMI app fixture authority."
-  (:require #?(:clj [clojure.edn :as edn])
-            #?(:clj [clojure.java.io :as io])
-            #?(:clj [clojure.string :as str])))
+  (:require [clojure.edn :as edn]
+            [clojure.string :as str]
+            #?(:clj [clojure.java.io :as io])))
 
 (def catalog-resource "kami/app_fixtures.edn")
 (def app-root-resource "kami/app")
