@@ -7,12 +7,16 @@
 (def contract-resource "kami/provider/split_contract.edn")
 (def expected-repo "orgs/kotoba-lang/kami-app-fixtures")
 
+;; contract-resource is Datomic/Datascript tx-data: a single-entity vector
+;; `[{:db/id -1 :kami/split-to ... ...}]` (edn-datomize.bb `wrap-map-keep-ns`
+;; mode, 2026-07-10). `contract` reconstitutes the plain map this namespace's
+;; validators expect by taking the first (only) entity and stripping :db/id.
 #?(:clj
    (defn contract []
      (let [resource (io/resource contract-resource)]
        (when-not resource
          (throw (ex-info "missing provider split contract" {:resource contract-resource})))
-       (-> resource slurp edn/read-string))))
+       (-> resource slurp edn/read-string first (dissoc :db/id)))))
 
 (def required-keys
   #{:kami/split-to :kami/kind :kami/authority :kami/adapter :kami/families

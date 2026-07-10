@@ -14,9 +14,17 @@
          (throw (ex-info "missing app fixture resource" {:path path})))
        (-> resource slurp edn/read-string))))
 
+;; catalog-resource is Datomic/Datascript tx-data: a vector of entity maps,
+;; each with a synthetic :db/id (-1, -2, ...) plus the original
+;; :kami.fixture/* attrs unchanged (edn-datomize.bb `catalog-vector` mode,
+;; 2026-07-10). `fixtures` reconstitutes the plain vector-of-maps shape this
+;; namespace's validators expect by stripping :db/id back off.
+(defn- reconstitute-fixture [entity]
+  (dissoc entity :db/id))
+
 #?(:clj
    (defn fixtures []
-     (:kami/app-fixtures (resource-edn catalog-resource))))
+     (mapv reconstitute-fixture (resource-edn catalog-resource))))
 
 (def required-keys
   #{:kami.fixture/id :kami.fixture/provider-crate :kami.fixture/kind
