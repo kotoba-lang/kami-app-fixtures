@@ -19,8 +19,9 @@
 ;; :kami.fixture/* attrs unchanged (edn-datomize.bb `catalog-vector` mode,
 ;; 2026-07-10). `fixtures` reconstitutes the plain vector-of-maps shape this
 ;; namespace's validators expect by stripping :db/id back off.
-(defn- reconstitute-fixture [entity]
-  (dissoc entity :db/id))
+#?(:clj
+   (defn- reconstitute-fixture [entity]
+     (dissoc entity :db/id)))
 
 #?(:clj
    (defn fixtures []
