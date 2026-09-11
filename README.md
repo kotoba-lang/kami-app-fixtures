@@ -8,5 +8,5 @@ Executable native app crates should either consume these fixtures or be deleted.
 ## Test
 
 ```sh
-clojure -M:test
+kbb -M:test
 ```
