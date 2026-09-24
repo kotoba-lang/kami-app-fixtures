@@ -1,6 +1,6 @@
 (ns kami.provider.contract
   "Local provider split contract validation."
-  (:require [clojure.edn :as edn]
+  (:require [kotoba.lang.edn :as edn]
             [kotoba.lang.text :as str]
             #?(:clj [clojure.java.io :as io])))
 
