@@ -1,5 +1,5 @@
 (ns kami.app-fixtures-test
-  (:require [clojure.test :refer [deftest is run-tests testing]]
+  (:require [kotoba.test :refer [deftest is run-tests testing]]
             [kami.app-fixtures :as fixtures]
             [kami.provider.contract-test]))
 

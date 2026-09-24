@@ -1,5 +1,5 @@
 (ns kami.provider.contract-test
-  (:require [clojure.test :refer [deftest is run-tests testing]]
+  (:require [kotoba.test :refer [deftest is run-tests testing]]
             [kami.provider.contract :as contract]))
 
 (deftest split-contract-validates
