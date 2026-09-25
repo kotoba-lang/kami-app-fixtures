@@ -2,7 +2,7 @@
   "Local provider split contract validation."
   (:require [kotoba.lang.edn :as edn]
             [kotoba.lang.text :as str]
-            #?(:clj [clojure.java.io :as io])))
+            #?(:clj [kotoba.io :as io])))
 
 (def contract-resource "kami/provider/split_contract.edn")
 (def expected-repo "orgs/kotoba-lang/kami-app-fixtures")
